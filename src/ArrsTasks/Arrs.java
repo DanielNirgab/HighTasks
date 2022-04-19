@@ -69,6 +69,7 @@ public class Arrs {
                     pairs++;
                 } else if (i == arr1.length - 1 && pairs==0) {
                     System.out.println("Таких пар нет");
+
                 }
             }
         }
