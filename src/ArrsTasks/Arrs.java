@@ -1,8 +1,10 @@
+package ArrsTasks;
+
 import java.util.Arrays;
 
 public class Arrs {
     public static void main(String[] args) {
-        //Task1
+        //Task5
         int [][] wrongsArray = new int[3][3];
         for (int i = 0; i < wrongsArray.length; i++) {
             for (int j = 0; j < wrongsArray[i].length; j++) {
@@ -15,7 +17,7 @@ public class Arrs {
             }
             System.out.println();
         }
-        //Task2
+        //Task6
         int [] wrongArray = {5, 4, 3, 2, 1};
         int [] correctArray = new int[wrongArray.length];
         System.out.println("Первоначальный массив: " + Arrays.toString(wrongArray));
@@ -27,7 +29,7 @@ public class Arrs {
         }
         System.out.println("Корректный массив: " + Arrays.toString(correctArray));
 
-        //Task3
+        //Task7
         System.out.println();
         System.out.println("Первоначальный массив следующей задачи: " + Arrays.toString(wrongArray));
         for (int i = 0; i < wrongArray.length; i++) {
@@ -40,7 +42,7 @@ public class Arrs {
         }
         System.out.println("Корректный массив следующей задачи: " + Arrays.toString(wrongArray));
 
-        //Task4
+        //Task8
         System.out.println();
         int [] arr1 = {-6, 2, 5, -8, 8, 10, 4, -7, 12, 1};
         Arrays.sort(arr1);
@@ -53,17 +55,22 @@ public class Arrs {
                 System.out.println("Таких пар нет");
             }
         }
-
+        // Task9
         System.out.println();
         Arrays.sort(arr1);
         System.out.println(Arrays.toString(arr1));
-        for (int i = 1; i < arr1.length; i++) {
-            if (arr1[i-1] - arr1[i] == -2) {
-                System.out.println("Парой чисел, которые в сумме дают -2, являются: " + arr1[i-1] + " & " + arr1[i]);
-            } else if (i == arr1.length - 1) {
-                System.out.println("Таких пар нет");
+        int pairs = 0;
+        for (int i = 0; i < arr1.length; i++) {
+            for (int j = 1; j < arr1.length; j++) {
+                boolean condition1 = arr1[i] - arr1[j] == -2;
+                boolean condition2 = arr1[i] + arr1[j] == -2;
+                if (condition1 && arr1[j] > 0 || condition2 && arr1[j] > 0) {
+                    System.out.println("Парой чисел, которые в сумме дают -2, являются: " + arr1[i] + " & " + arr1[j]);
+                    pairs++;
+                } else if (i == arr1.length - 1 && pairs==0) {
+                    System.out.println("Таких пар нет");
+                }
             }
         }
-
     }
 }
